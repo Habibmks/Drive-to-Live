@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondCarController : MonoBehaviour
+public class TirController : MonoBehaviour
 {
-    public int speed;
-    public int jumpSpeed;
-    public int maxSpeed;
-    public float RotationSpeed;
+    public static float speed = 3.0f;
+    public static float maxSpeed;
     public float atisHizi;
+
+
+
+    public float lastShot;
+    public static float cooldown = 10.0f;
 
     bool canJump;
     bool canFast;
     bool canTumble;
+    public bool player1;
+    public bool player2;
 
     Animator animator;
     Rigidbody2D rb;
@@ -20,59 +25,67 @@ public class SecondCarController : MonoBehaviour
     public Transform AtesNoktasi;
 
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
     }
 
     private void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.X))
+        if (player1)
         {
-            Shoot();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            FastMove();
-        }
-        else
-        {
+            atisHizi = 3500;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                FastMove();
+            }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Shoot();
 
+            }
+            else
+            {
+
+            }
+            Move();
         }
-        Move();
-        Tumble();*/
+        if (player2)
+        {
+            atisHizi = -3500;
+            if (Input.GetKey(KeyCode.RightShift))
+            {
+                FastMove();
+            }
+            if (Input.GetKeyDown(KeyCode.PageDown))
+            {
+                Shoot();
+
+            }
+            else
+            {
+
+            }
+            secondMove();
+        }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Platform")
         {
-            canJump = true;
             canFast = true;
         }
         if (collision.transform.tag != "Platform")
         {
-            canTumble = true;
-        }
-
-    }
-
-    private void Jump()
-    {
-        if (canJump == true)
-        {
-            rb.AddForce(Vector2.up * jumpSpeed);
-            canJump = false;
         }
     }
 
-    private void FastMove()
+    public void FastMove()
     {
         if (canFast)
         {
@@ -81,27 +94,30 @@ public class SecondCarController : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
-    void Tumble()
+    public void secondMove()
     {
-        float moveInput = Input.GetAxis("Horizontal");
-        if (canTumble)
-        {
-            if (moveInput != 0)
-            {
-                rb.AddTorque(RotationSpeed * moveInput * (-1));
-            }
-        }
+        float moveInput = Input.GetAxis("Vertical");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
-    private void Shoot()
+
+    public void Shoot()
     {
+        if (Time.time - lastShot < cooldown)
+        {
+            return;
+        }
+        lastShot = Time.time;
         GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
         mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
     }
+
+
 }
+

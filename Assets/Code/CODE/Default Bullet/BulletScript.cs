@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "SecondCar")
+        if (collision.gameObject.tag == "Car")
         {
             Destroy(gameObject);
         }
@@ -25,5 +25,13 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Regen")
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
