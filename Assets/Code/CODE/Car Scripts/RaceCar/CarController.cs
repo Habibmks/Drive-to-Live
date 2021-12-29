@@ -9,11 +9,14 @@ public class CarController : MonoBehaviour
     public static float maxSpeed;
     public static float RotationSpeed = 0.4f;
     public float atisHizi ;
+    public float skillHizi;
 
 
 
     public float lastShot;
-    public static float cooldown = 10.0f;
+    public float lastSkillShot;
+    public static float skillCooldown = 10.0f;
+    public static float shootCooldown = 1.0f;
 
      bool canJump;
      bool canFast;
@@ -25,6 +28,8 @@ public class CarController : MonoBehaviour
     Rigidbody2D rb;
     public GameObject bullet;
     public Transform AtesNoktasi;
+    public GameObject NormalCarSkill;
+    public Transform skillNoktasi;
 
 
     private void Start()
@@ -39,6 +44,7 @@ public class CarController : MonoBehaviour
         if (player1)
         {
             atisHizi = 3500;
+            skillHizi = 5000;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -58,6 +64,7 @@ public class CarController : MonoBehaviour
         if (player2)
         {
             atisHizi = -3500;
+            skillHizi = -5000;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
@@ -137,13 +144,24 @@ public class CarController : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time - lastShot < cooldown)
+        if (Time.time - lastShot < shootCooldown)
         {
             return;
         }
         lastShot = Time.time;
         GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
         mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
+    }
+
+    public void SkillShot()
+    {
+        if (Time.time - lastSkillShot < skillCooldown)
+        {
+            return;
+        }
+        lastSkillShot = Time.time;
+        GameObject skill = Instantiate(NormalCarSkill, skillNoktasi.position, Quaternion.identity);
+        skill.GetComponent<Rigidbody2D>().velocity = new Vector2(skillHizi * Time.deltaTime, 0);
     }
 
 
