@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+<<<<<<< HEAD
     public SkillsCooldown sc;
+=======
+>>>>>>> parent of 7f292bd (Bitise Yakiniz)
     public int speed;
     public int jumpSpeed;
     public int maxSpeed;
@@ -33,7 +36,10 @@ public class CarController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Shoot();
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 7f292bd (Bitise Yakiniz)
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -102,6 +108,7 @@ public class CarController : MonoBehaviour
 
     private void Shoot()
     {
+<<<<<<< HEAD
 
             GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
             mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
@@ -112,6 +119,11 @@ public class CarController : MonoBehaviour
         
 
     
+=======
+        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
+        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
+    }
+>>>>>>> parent of 7f292bd (Bitise Yakiniz)
 
 
 }

@@ -2,37 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecondCarController : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     public int speed;
     public int jumpSpeed;
     public int maxSpeed;
-    public float RotationSpeed;
-    public float atisHizi;
-
     bool canJump;
     bool canFast;
-    bool canTumble;
-
     Animator animator;
     Rigidbody2D rb;
-    public GameObject bullet;
-    public Transform AtesNoktasi;
-
-
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.X))
-        {
-            Shoot();
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -43,10 +31,8 @@ public class SecondCarController : MonoBehaviour
         }
         else
         {
-
+            Move();
         }
-        Move();
-        Tumble();*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,11 +44,9 @@ public class SecondCarController : MonoBehaviour
         }
         if (collision.transform.tag != "Platform")
         {
-            canTumble = true;
+
         }
-
     }
-
     private void Jump()
     {
         if (canJump == true)
@@ -71,7 +55,6 @@ public class SecondCarController : MonoBehaviour
             canJump = false;
         }
     }
-
     private void FastMove()
     {
         if (canFast)
@@ -83,25 +66,8 @@ public class SecondCarController : MonoBehaviour
 
     private void Move()
     {
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
-
-    void Tumble()
-    {
-        float moveInput = Input.GetAxis("Horizontal");
-        if (canTumble)
-        {
-            if (moveInput != 0)
-            {
-                rb.AddTorque(RotationSpeed * moveInput * (-1));
-            }
-        }
-    }
-
-    private void Shoot()
-    {
-        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
-        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
-    }
 }
+
