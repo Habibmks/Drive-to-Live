@@ -13,7 +13,7 @@ public class CarController : MonoBehaviour
 
 
     public float lastShot;
-    public static float cooldown = 10.0f;
+    public static float cooldown = 1.0f;
 
      bool canJump;
      bool canFast;

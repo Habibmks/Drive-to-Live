@@ -2,6 +2,7 @@ using DapperDino.UMT.Lobby.Networking;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace DapperDino.UMT.Lobby.UI
 {
@@ -135,6 +136,7 @@ namespace DapperDino.UMT.Lobby.UI
         public void OnStartGameClicked()
         {
             StartGameServerRpc();
+            SceneManager.LoadScene(1);
         }
 
         private void HandleLobbyPlayersStateChanged(NetworkListEvent<LobbyPlayerState> lobbyState)
