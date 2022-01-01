@@ -2402,3 +2402,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthDrop: {fileID: 1768790466}
   respawnTime: 30
+<<<<<<< Updated upstream
+=======
+--- !u!114 &2067838163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067838157}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4e05a650e55d74c961f682f44b9645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirstCar: {fileID: 3757823634022436867, guid: 0709524175d868c43989b703156c1163, type: 3}
+  SecondCar: {fileID: 0}
+>>>>>>> Stashed changes
