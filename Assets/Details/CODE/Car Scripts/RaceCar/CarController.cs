@@ -112,7 +112,7 @@ public class CarController : MonoBehaviour
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
-
+    
     public void secondMove()
     {
         float moveInput = Input.GetAxis("Vertical");
@@ -149,8 +149,8 @@ public class CarController : MonoBehaviour
             return;
         }
         lastShot = Time.time;
-        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
-        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
+        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, AtesNoktasi.rotation);
+        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, -AtesNoktasi.position.y);
     }
 
     public void SkillShot()
