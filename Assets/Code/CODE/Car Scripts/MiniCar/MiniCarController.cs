@@ -9,14 +9,17 @@ public class MiniCarController : MonoBehaviour
     public static float maxSpeed;
     public static float RotationSpeed = 0.5f;
     public float atisHizi;
+    public float skillAtisHizi;
 
 
 
     public float lastShot;
-    public static float cooldown = 10.0f;
+    public float lastSkilShot;
+    public static float cooldown = 1.0f;
+    public static float skillCooldown = 15.0f;
 
     bool canJump;
-    bool canTumble;
+    bool canTumble = true;
     public bool player1;
     public bool player2;
 
@@ -24,6 +27,8 @@ public class MiniCarController : MonoBehaviour
     Rigidbody2D rb;
     public GameObject bullet;
     public Transform AtesNoktasi;
+    public GameObject skillShott;
+    public Transform SkillShotPoint;
 
 
     private void Start()
@@ -37,7 +42,8 @@ public class MiniCarController : MonoBehaviour
     {
         if (player1)
         {
-            atisHizi = 3500;
+            atisHizi = 1000;
+            skillAtisHizi = 1800;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -48,6 +54,10 @@ public class MiniCarController : MonoBehaviour
                 Shoot();
 
             }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SkillShot();
+            }
             else
             {
 
@@ -57,7 +67,8 @@ public class MiniCarController : MonoBehaviour
         }
         if (player2)
         {
-            atisHizi = -3500;
+            atisHizi = -1000;
+            skillAtisHizi = -1800;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
@@ -84,10 +95,7 @@ public class MiniCarController : MonoBehaviour
         {
             canJump = true;
         }
-        if (collision.transform.tag != "Platform")
-        {
-            canTumble = true;
-        }
+
     }
     public void Jump()
     {
@@ -142,5 +150,15 @@ public class MiniCarController : MonoBehaviour
         lastShot = Time.time;
         GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
         mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
+    }
+    public void SkillShot()
+    {
+        if (Time.time - lastShot < cooldown)
+        {
+            return;
+        }
+        lastSkilShot = Time.time;
+        GameObject skillShot = Instantiate(skillShott, SkillShotPoint.position, Quaternion.identity);
+        skillShot.GetComponent<Rigidbody2D>().velocity = new Vector2(skillAtisHizi * Time.deltaTime, 0);
     }
 }

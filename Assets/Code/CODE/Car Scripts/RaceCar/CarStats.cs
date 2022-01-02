@@ -6,9 +6,11 @@ public class CarStats : MonoBehaviour
 {
     public static int MaxHealth = 500;
     public int CurrentHealth;
+    public int carID = 1;
 
     public bool player1;
     public bool player2;
+
 
     public HealthBar healthBarr;
     public HealthBar healthBarr2;
@@ -74,6 +76,10 @@ public class CarStats : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             TakeDamage(10);
+        }
+        if (collision.gameObject.tag == "MiniCarSkill")
+        {
+            TakeDamage(150);
         }
         if (collision.gameObject.tag == "Regen")
         {

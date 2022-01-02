@@ -9,6 +9,7 @@ TagManager:
   - Car
   - SecondCar
   - Regen
+  - MiniCarSkill
   layers:
   - Default
   - TransparentFX

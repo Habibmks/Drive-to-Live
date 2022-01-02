@@ -75,6 +75,10 @@ public class MiniCarStats : MonoBehaviour
         {
             TakeDamage(10);
         }
+        if (collision.gameObject.tag == "MiniCarSkill")
+        {
+            TakeDamage(150);
+        }
         if (collision.gameObject.tag == "Regen")
         {
             Regen();
