@@ -10,6 +10,9 @@ TagManager:
   - SecondCar
   - Regen
   - MiniCarSkill
+  - RaceCarSkill
+  - JeapSkill
+  - ItfaiyeSkill
   layers:
   - Default
   - TransparentFX

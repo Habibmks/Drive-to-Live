@@ -7,7 +7,7 @@ public class MiniCarController : MonoBehaviour
     public static float speed = 7.0f;
     public static float jumpSpeed = 450;
     public static float maxSpeed;
-    public static float RotationSpeed = 0.5f;
+    public static float RotationSpeed = 0.4f;
     public float atisHizi;
     public float skillAtisHizi;
 
@@ -42,8 +42,8 @@ public class MiniCarController : MonoBehaviour
     {
         if (player1)
         {
-            atisHizi = 1000;
-            skillAtisHizi = 1800;
+            atisHizi = 3500;
+            skillAtisHizi = 4500;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -67,16 +67,19 @@ public class MiniCarController : MonoBehaviour
         }
         if (player2)
         {
-            atisHizi = -1000;
-            skillAtisHizi = -1800;
+            atisHizi = -3500;
+            skillAtisHizi = -4500;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
             }
-            if (Input.GetKeyDown(KeyCode.PageDown))
+            if (Input.GetKeyDown(KeyCode.Delete))
             {
                 Shoot();
-
+            }
+            if (Input.GetKeyDown(KeyCode.PageDown))
+            {
+                SkillShot();
             }
             else
             {
@@ -153,7 +156,7 @@ public class MiniCarController : MonoBehaviour
     }
     public void SkillShot()
     {
-        if (Time.time - lastShot < cooldown)
+        if (Time.time - lastShot < skillCooldown)
         {
             return;
         }

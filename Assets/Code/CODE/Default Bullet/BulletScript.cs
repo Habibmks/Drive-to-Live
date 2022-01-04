@@ -25,9 +25,14 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Regen")
+        if (collision.gameObject.tag == "Regen" )
         {
             Destroy(gameObject);
         }
+     
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

@@ -6,7 +6,6 @@ public class CarController : MonoBehaviour
 {
     public static float speed = 5.5f;
     public static float jumpSpeed = 450;
-    public static float maxSpeed;
     public static float RotationSpeed = 0.4f;
     public float atisHizi ;
     public float skillHizi;
@@ -15,12 +14,11 @@ public class CarController : MonoBehaviour
 
     public float lastShot;
     public float lastSkillShot;
-    public static float skillCooldown = 10.0f;
+    public static float skillCooldown = 15.0f;
     public static float shootCooldown = 1.0f;
 
      bool canJump;
-     bool canFast;
-     bool canTumble;
+     bool canTumble = true;
     public bool player1;
     public bool player2;
 
@@ -44,7 +42,7 @@ public class CarController : MonoBehaviour
         if (player1)
         {
             atisHizi = 3500;
-            skillHizi = 5000;
+            skillHizi = 4500;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -53,6 +51,10 @@ public class CarController : MonoBehaviour
             {
                 Shoot();
 
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SkillShot();
             }
             else
             {
@@ -70,10 +72,14 @@ public class CarController : MonoBehaviour
                 Jump();
                 
             }
-            if (Input.GetKeyDown(KeyCode.PageDown))
+            if (Input.GetKeyDown(KeyCode.Delete))
             {
                 Shoot();
 
+            }
+            if (Input.GetKeyDown(KeyCode.PageDown))
+            {
+                SkillShot();
             }
             else
             {
@@ -91,10 +97,6 @@ public class CarController : MonoBehaviour
         if (collision.transform.tag == "Platform")
         {
             canJump = true;
-        }
-        if (collision.transform.tag != "Platform")
-        {
-            canTumble = true;
         }
     }
 

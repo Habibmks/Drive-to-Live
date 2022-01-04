@@ -15,13 +15,12 @@ public class LobbyScripts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -34,8 +33,6 @@ public class LobbyScripts : MonoBehaviour
         int P1Rnd = Random.Range(1,5), P2Rnd = Random.Range(1,5);
         p1 = P1Rnd;
         p2 = P2Rnd;
-        Debug.Log(p1);
-        Debug.Log(p2);
         SceneManager.LoadScene(3);
     }
     
