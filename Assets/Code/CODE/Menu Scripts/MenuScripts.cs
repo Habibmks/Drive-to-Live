@@ -25,4 +25,20 @@ public class MenuScripts : MonoBehaviour
         Application.Quit();
     }
 
+    public void toPlayerLobby(){
+        SceneManager.LoadScene(2);
+    }
+
+    public void toPlayScene(){
+        SceneManager.LoadScene(3);
+    }
+
+    public void LoadMenu(){
+        SceneManager.LoadScene(0);
+    }
+
+    public void StoryButton(){
+        
+    }
+
 }

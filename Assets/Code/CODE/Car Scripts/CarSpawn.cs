@@ -6,12 +6,23 @@ public class CarSpawn : MonoBehaviour
 {
     public GameObject FirstCar;
     public GameObject SecondCar;
+    public GameObject Player1raceCar;
+    public GameObject Player1Truck;
+    public GameObject Player1itfaiye;
+    public GameObject Player1Savas;
+
+    public GameObject Player2raceCar;
+    public GameObject Player2Truck;
+    public GameObject Player2itfaiye;
+    public GameObject Player2Savas;
     public bool fcar;
     public bool scar;
     public int carID;
-    public CarSpawn(int carID)
+    int player1, player2;
+    public CarSpawn()
     {
-        this.carID = carID;
+        player1 = LobbyScripts.p1;
+        player2 = LobbyScripts.p2;
     }
     // Start is called before the first frame update
     void Start()
@@ -28,6 +39,9 @@ public class CarSpawn : MonoBehaviour
                 break;
 
         }*/
+
+        Debug.Log(player1);
+
 
         
             Destroy(SecondCar);
