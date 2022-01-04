@@ -40,7 +40,7 @@ public class CarSpawn : MonoBehaviour
 
         }*/
 
-        Debug.Log(player1);
+        Debug.Log("CarSpawn player1: "+player1);
 
 
         
