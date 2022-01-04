@@ -19,11 +19,13 @@ public class CarSpawn : MonoBehaviour
     public bool scar;
     public int carID;
     int player1, player2;
+
     public CarSpawn()
     {
         player1 = LobbyScripts.p1;
         player2 = LobbyScripts.p2;
     }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class CarSpawn : MonoBehaviour
         }*/
 
         Debug.Log("CarSpawn player1: "+player1);
+        Debug.Log("CarSpawn player2: "+player2);
 
 
         

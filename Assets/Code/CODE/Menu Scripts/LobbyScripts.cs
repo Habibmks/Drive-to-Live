@@ -31,7 +31,7 @@ public class LobbyScripts : MonoBehaviour
     }
 
     public void RandomButton(){
-        int P1Rnd = Random.Range(1,4), P2Rnd = Random.Range(1,4);
+        int P1Rnd = Random.Range(1,5), P2Rnd = Random.Range(1,5);
         p1 = P1Rnd;
         p2 = P2Rnd;
         Debug.Log(p1);
