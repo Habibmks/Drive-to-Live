@@ -29,9 +29,6 @@ public class HealthDrop : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Bullet")
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }

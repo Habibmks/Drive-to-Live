@@ -30,4 +30,8 @@ public class MiniSkillScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

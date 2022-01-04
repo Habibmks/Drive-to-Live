@@ -12,8 +12,8 @@ public class SkillsCooldown : MonoBehaviour
     private TMP_Text textCooldownn;
 
     public bool isCooldown = false;
-    public float cooldownTime = 10.0f;
-    public float cooldownTimer = 10.0f;
+    public float cooldownTime = 15.0f;
+    public float cooldownTimer = 15.0f;
     void Start()
     {
         textCooldownn.gameObject.SetActive(false);
@@ -22,10 +22,17 @@ public class SkillsCooldown : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             UseSpell();
-            applyCooldown();
+            if (isCooldown)
+            {
+                applyCooldown();
+            }
+        }
+        else
+        {
+
         }
 
     }

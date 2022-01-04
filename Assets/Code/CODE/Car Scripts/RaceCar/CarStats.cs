@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarStats : MonoBehaviour
 {
-    public static int MaxHealth = 500;
+    public static int MaxHealth = 550;
     public int CurrentHealth;
     public int carID = 1;
 
@@ -60,12 +60,12 @@ public class CarStats : MonoBehaviour
     {
         if (player1)
         {
-            CurrentHealth += 45;
+            CurrentHealth += 40;
             healthBarr.SetHealth(CurrentHealth);
         }
         else if (player2)
         {
-            CurrentHealth += 45;
+            CurrentHealth += 40;
             healthBarr2.SetHealth(CurrentHealth);
         }
         
@@ -79,11 +79,23 @@ public class CarStats : MonoBehaviour
         }
         if (collision.gameObject.tag == "MiniCarSkill")
         {
-            TakeDamage(150);
+            TakeDamage(120);
         }
         if (collision.gameObject.tag == "Regen")
         {
             Regen();
+        }
+        if (collision.gameObject.tag == "RaceCarSkill")
+        {
+            TakeDamage(100);
+        }
+        if (collision.gameObject.tag == "JeapSkill")
+        {
+            TakeDamage(90);
+        }
+        if (collision.gameObject.tag == "ItfaiyeSkill")
+        {
+            TakeDamage(80);
         }
     }
 }
