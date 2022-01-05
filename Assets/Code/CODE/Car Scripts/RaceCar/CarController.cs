@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public static float speed = 5.5f;
-    public static float jumpSpeed = 450;
+    public static float speed = 8.0f;
+    public static float jumpSpeed = 550;
     public static float RotationSpeed = 0.4f;
     public float atisHizi ;
     public float skillHizi;

@@ -6,9 +6,9 @@ public class ItfaiyeController : MonoBehaviour
 {
     public static float leftSpeed;
     public static float rightSpeed;
-    public static float normalSpeed = 3.0f;
-    public static float maxLeftSpeed = 7.0f;
-    public static float maxRightSpeed = 7.0f;
+    public static float normalSpeed = 5.5f;
+    public static float maxLeftSpeed = 9.0f;
+    public static float maxRightSpeed = 9.0f;
     public float atisHizi;
     public float skillHizi;
 

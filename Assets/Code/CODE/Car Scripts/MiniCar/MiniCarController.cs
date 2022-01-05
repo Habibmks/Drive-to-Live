@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniCarController : MonoBehaviour
 {
-    public static float speed = 7.0f;
+    public static float speed = 11.0f;
     public static float jumpSpeed = 450;
     public static float maxSpeed;
     public static float RotationSpeed = 0.4f;

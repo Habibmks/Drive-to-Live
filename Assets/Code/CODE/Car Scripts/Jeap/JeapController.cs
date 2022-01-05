@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class JeapController : MonoBehaviour
 {
-    public static float speed = 4.5f;
-    public static float jumpSpeed = 450;
+    public static float speed = 7.0f;
+    public static float jumpSpeed = 550;
     public static float RotationSpeed = 0.4f;
     public float atisHizi;
     public float skillAtisHizi;
