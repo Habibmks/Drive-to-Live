@@ -14,6 +14,7 @@ public class CarSpawn : MonoBehaviour
     public GameObject ThirdCarR;
     public GameObject FourthCarR;
 
+    public static bool winner = true;
 
     public static int firstPlayer, secondPlayer;
 
