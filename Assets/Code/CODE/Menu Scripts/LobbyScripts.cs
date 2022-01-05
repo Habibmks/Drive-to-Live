@@ -25,8 +25,7 @@ public class LobbyScripts : MonoBehaviour
 
 
     void startButton(){
-        //p1 = p1index;
-        //p2 = p2index;
+        
     }
 
     public void RandomButton(){

@@ -27,7 +27,7 @@ public class CarSpawn : MonoBehaviour
     {
         Debug.Log(firstPlayer);
         Debug.Log(secondPlayer);
-        switch (firstPlayer)
+        switch (LobbyScripts.p1)
         {
             case 1:
                 Destroy(SecondCar);
@@ -53,7 +53,7 @@ public class CarSpawn : MonoBehaviour
 
                 break;
         }
-        switch (secondPlayer)
+        switch (LobbyScripts.p2)
         {
             case 1:
                 Destroy(SecondCarR);

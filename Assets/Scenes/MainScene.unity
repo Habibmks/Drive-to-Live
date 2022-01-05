@@ -461,11 +461,7 @@ GameObject:
   - component: {fileID: 257016210}
   - component: {fileID: 257016209}
   m_Layer: 0
-<<<<<<< Updated upstream
-  m_Name: map1 zemin
-=======
   m_Name: Platform
->>>>>>> Stashed changes
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
