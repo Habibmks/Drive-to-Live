@@ -19,11 +19,15 @@ public class JeapSkill : MonoBehaviour
     {
         if (collision.gameObject.tag == "Car")
         {
+            
             Destroy(gameObject);
+       
         }
         if (collision.gameObject.tag == "Platform")
         {
+            
             Destroy(gameObject);
+           
         }
         if (collision.gameObject.tag == "Regen")
         {

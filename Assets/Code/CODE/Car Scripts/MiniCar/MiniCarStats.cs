@@ -35,6 +35,7 @@ public class MiniCarStats : MonoBehaviour
         }
         if (CurrentHealth <= 0)
         {
+       
             Destroy(gameObject);
         }
 

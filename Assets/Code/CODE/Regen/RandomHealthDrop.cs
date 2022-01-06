@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomHealthDrop : MonoBehaviour
 {
     public GameObject HealthDrop;
-    public float respawnTime = 20.0f;
+    public float respawnTime = 30.0f;
     private Vector2 screenBound;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class RandomHealthDrop : MonoBehaviour
     private void SpawnHealth()
     {
         GameObject h = Instantiate(HealthDrop) as GameObject;
-        h.transform.position = new Vector2(Random.Range(-screenBound.x, screenBound.x), screenBound.y * 2 );
+        h.transform.position = new Vector2(Random.Range(-screenBound.x+1, screenBound.x-1), screenBound.y -1);
     }
     IEnumerator healthFall()
     {

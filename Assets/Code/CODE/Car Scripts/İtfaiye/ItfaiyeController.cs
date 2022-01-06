@@ -7,8 +7,8 @@ public class ItfaiyeController : MonoBehaviour
     public static float leftSpeed;
     public static float rightSpeed;
     public static float normalSpeed = 5.5f;
-    public static float maxLeftSpeed = 9.0f;
-    public static float maxRightSpeed = 9.0f;
+    public static float maxLeftSpeed = 10.0f;
+    public static float maxRightSpeed = 10.0f;
     public float atisHizi;
     public float skillHizi;
 
@@ -18,7 +18,7 @@ public class ItfaiyeController : MonoBehaviour
     public float lastSkillShot;
     public float lastFastMove;
     public static float skillCooldown = 15.0f;
-    public static float shootCooldown = 1.0f;
+    public static float shootCooldown = 0.7f;
     public static float fastMoveCooldown = 10.0f;
     public static float fastMoveCounter;
 
@@ -54,8 +54,8 @@ public class ItfaiyeController : MonoBehaviour
     {
         if (player1)
         {
-            atisHizi = 3500;
-            skillHizi = 4500;
+            atisHizi = 4500;
+            skillHizi = 4700;
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 lastFastMove = 0.0f;
@@ -85,8 +85,8 @@ public class ItfaiyeController : MonoBehaviour
         }
         if (player2)
         {
-            atisHizi = -3500;
-            skillHizi = -5000;
+            atisHizi = -4500;
+            skillHizi = -4700;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
 
@@ -149,23 +149,31 @@ public class ItfaiyeController : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time - lastShot < shootCooldown)
+        if (lastShot == 0)
+        {
+            lastShot = Time.time;
+        }
+        else if (Time.time - lastShot < shootCooldown)
         {
             return;
         }
         lastShot = Time.time;
-        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
-        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, -AtesNoktasi.position.y);
+        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, AtesNoktasi.rotation);
+        mermi.GetComponent<Rigidbody2D>().AddForce(AtesNoktasi.right * 20, ForceMode2D.Impulse);
     }
 
     public void SkillShot()
     {
-        if (Time.time - lastSkillShot < skillCooldown)
+        if (lastSkillShot == 0)
+        {
+            lastSkillShot = Time.time;
+        }
+        else if (Time.time - lastSkillShot < skillCooldown)
         {
             return;
         }
         lastSkillShot = Time.time;
-        GameObject skill = Instantiate(NormalCarSkill, skillNoktasi.position, Quaternion.identity);
-        skill.GetComponent<Rigidbody2D>().velocity = new Vector2(skillHizi * Time.deltaTime, 0);
+        GameObject skill = Instantiate(NormalCarSkill, skillNoktasi.position, skillNoktasi.rotation);
+        skill.GetComponent<Rigidbody2D>().AddForce(skillNoktasi.right * 25, ForceMode2D.Impulse);
     }
 }

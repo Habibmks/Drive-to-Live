@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     public static float speed = 8.0f;
-    public static float jumpSpeed = 550;
+    public static float jumpSpeed = 600;
     public static float RotationSpeed = 0.4f;
     public float atisHizi ;
     public float skillHizi;
@@ -15,7 +15,7 @@ public class CarController : MonoBehaviour
     public float lastShot;
     public float lastSkillShot;
     public static float skillCooldown = 15.0f;
-    public static float shootCooldown = 1.0f;
+    public static float shootCooldown = 0.7f;
 
      bool canJump;
      bool canTumble = true;
@@ -41,8 +41,8 @@ public class CarController : MonoBehaviour
     {
         if (player1)
         {
-            atisHizi = 3500;
-            skillHizi = 4500;
+            atisHizi = 4500;
+            skillHizi = 4700;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -65,8 +65,8 @@ public class CarController : MonoBehaviour
         }
         if (player2)
         {
-            atisHizi = -3500;
-            skillHizi = -5000;
+            atisHizi = -4500;
+            skillHizi = -4700;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
@@ -146,24 +146,32 @@ public class CarController : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time - lastShot < shootCooldown)
+        if (lastShot == 0)
+        {
+            lastShot = Time.time;
+        }
+        else if (Time.time - lastShot < shootCooldown)
         {
             return;
         }
         lastShot = Time.time;
-        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
-        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, -AtesNoktasi.position.y);
+        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, AtesNoktasi.rotation);
+        mermi.GetComponent<Rigidbody2D>().AddForce(AtesNoktasi.right * 20, ForceMode2D.Impulse);
     }
 
     public void SkillShot()
     {
-        if (Time.time - lastSkillShot < skillCooldown)
+        if (lastSkillShot == 0)
+        {
+            lastSkillShot = Time.time;
+        }
+        else if (Time.time - lastSkillShot < skillCooldown)
         {
             return;
         }
         lastSkillShot = Time.time;
-        GameObject skill = Instantiate(NormalCarSkill, skillNoktasi.position, Quaternion.identity);
-        skill.GetComponent<Rigidbody2D>().velocity = new Vector2(skillHizi * Time.deltaTime, 0);
+        GameObject skillShot = Instantiate(NormalCarSkill, skillNoktasi.position, skillNoktasi.rotation);
+        skillShot.GetComponent<Rigidbody2D>().AddForce(skillNoktasi.right * 25, ForceMode2D.Impulse);
     }
 
 

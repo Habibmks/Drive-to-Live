@@ -14,8 +14,8 @@ public class JeapController : MonoBehaviour
 
     public float lastShot;
     public float lastSkilShot;
-    public static float cooldown = 1.0f;
-    public static float skillCooldown = 1.0f;
+    public static float cooldown = 0.7f;
+    public static float skillCooldown = 15.0f;
 
     bool canJump;
     bool canTumble = true;
@@ -41,8 +41,8 @@ public class JeapController : MonoBehaviour
     {
         if (player1)
         {
-            atisHizi = 3500;
-            skillAtisHizi = 4500;
+            atisHizi = 4500;
+            skillAtisHizi = 4700;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -66,8 +66,8 @@ public class JeapController : MonoBehaviour
         }
         if (player2)
         {
-            atisHizi = -3500;
-            skillAtisHizi = -4500;
+            atisHizi = -4500;
+            skillAtisHizi = -4700;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
@@ -145,22 +145,30 @@ public class JeapController : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time - lastShot < cooldown)
+        if (lastShot == 0)
+        {
+            lastShot = Time.time;
+        }
+        else if (Time.time - lastShot < cooldown)
         {
             return;
         }
         lastShot = Time.time;
-        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, Quaternion.identity);
-        mermi.GetComponent<Rigidbody2D>().velocity = new Vector2(atisHizi * Time.deltaTime, 0);
+        GameObject mermi = Instantiate(bullet, AtesNoktasi.position, AtesNoktasi.rotation);
+        mermi.GetComponent<Rigidbody2D>().AddForce(AtesNoktasi.right * 20, ForceMode2D.Impulse);
     }
     public void SkillShot()
     {
-        if (Time.time - lastShot < skillCooldown)
+        if (lastSkilShot == 0)
+        {
+            lastSkilShot = Time.time;
+        }
+        else if (Time.time - lastSkilShot < skillCooldown)
         {
             return;
         }
         lastSkilShot = Time.time;
-        GameObject skillShot = Instantiate(skillShott, SkillShotPoint.position, Quaternion.identity);
-        skillShot.GetComponent<Rigidbody2D>().velocity = new Vector2(skillAtisHizi * Time.deltaTime, 0);
+        GameObject skillShot = Instantiate(skillShott, SkillShotPoint.position, SkillShotPoint.rotation);
+        skillShot.GetComponent<Rigidbody2D>().AddForce(SkillShotPoint.right * 25, ForceMode2D.Impulse);
     }
 }

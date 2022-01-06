@@ -7,7 +7,7 @@ public class RaceCarSkill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,11 +19,13 @@ public class RaceCarSkill : MonoBehaviour
     {
         if (collision.gameObject.tag == "Car")
         {
-            Destroy(gameObject);
+            
+            Destroy(gameObject); 
         }
         if (collision.gameObject.tag == "Platform")
         {
-            Destroy(gameObject);
+            
+            Destroy(gameObject); 
         }
         if (collision.gameObject.tag == "Regen")
         {

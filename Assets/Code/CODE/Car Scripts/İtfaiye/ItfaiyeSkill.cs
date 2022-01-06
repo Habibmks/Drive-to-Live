@@ -19,11 +19,13 @@ public class ItfaiyeSkill : MonoBehaviour
     {
         if (collision.gameObject.tag == "Car")
         {
-            Destroy(gameObject);
+            
+            Destroy(gameObject); 
         }
         if (collision.gameObject.tag == "Platform")
         {
-            Destroy(gameObject);
+            
+            Destroy(gameObject); 
         }
         if (collision.gameObject.tag == "Regen")
         {

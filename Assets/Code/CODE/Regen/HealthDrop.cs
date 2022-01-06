@@ -29,6 +29,22 @@ public class HealthDrop : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        if (collision.gameObject.tag == "MiniCarSkill")
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "RaceCarSkill")
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "JeapSkill")
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "ItfaiyeSkill")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
