@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItfaiyeStats : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class ItfaiyeStats : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
+
         }
 
     }

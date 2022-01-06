@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniCarStats : MonoBehaviour
 {
@@ -35,8 +36,8 @@ public class MiniCarStats : MonoBehaviour
         }
         if (CurrentHealth <= 0)
         {
-       
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
         }
 
     }

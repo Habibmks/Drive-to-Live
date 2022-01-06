@@ -8,7 +8,8 @@ public class PlayerLobbyScript : MonoBehaviour
 
 
 
-    public static int player1 = 0, player2 = 0;
+    public static int player1 = 120, player2 = 120;
+    public static bool map = true;
     
     public GameObject P1_1;
     public GameObject P1_2;
@@ -61,7 +62,11 @@ public class PlayerLobbyScript : MonoBehaviour
     public void StartButton(){
         LobbyScripts.p1 = (player1%4) +1;
         LobbyScripts.p2 = (player2%4) +1;
-        SceneManager.LoadScene(3);
+        if(map){
+            SceneManager.LoadScene(5);
+        }else{
+            SceneManager.LoadScene(6);
+        }
     }
 
     public void ChangeP1(bool op){

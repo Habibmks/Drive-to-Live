@@ -7,17 +7,20 @@ public class PauseScript : MonoBehaviour
 {
     public static bool pause = false;
     public GameObject pauseMenu;
+    public bool isPause = false;
 
     private void Start (){
 
     }
 
     private void Update(){
-        if (Input.GetKey("escape"))
-        {
-            pauseButton();
-            Debug.Log("Escape");
-        }
+
+         if (Input.GetKeyDown("escape"))
+            {
+              pauseButton();
+              Debug.Log("Escape");
+            }
+        
     }
 
     public void pauseButton(){
@@ -42,5 +45,8 @@ public class PauseScript : MonoBehaviour
     public void Home(){
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+    public void Quit(){
+        Application.Quit();
     }
 }

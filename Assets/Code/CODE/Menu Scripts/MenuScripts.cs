@@ -8,6 +8,7 @@ public class MenuScripts : MonoBehaviour
 {
     
     public TextMeshProUGUI txt;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +31,11 @@ public class MenuScripts : MonoBehaviour
     }
 
     public void toPlayerLobby(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void toPlayScene(){
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadMenu(){
@@ -48,8 +49,10 @@ public class MenuScripts : MonoBehaviour
     public void MuteButton(){
         if(txt.text == "Mute"){
             txt.text = "Unmute";
+            AudioListener.pause = true;
         }else{
             txt.text = "Mute";
+            AudioListener.pause = false;
         }
     }
 

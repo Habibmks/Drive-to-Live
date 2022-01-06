@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class JeapStats : MonoBehaviour
 {
     public static int MaxHealth = 750;
@@ -36,6 +36,8 @@ public class JeapStats : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
+
         }
 
     }

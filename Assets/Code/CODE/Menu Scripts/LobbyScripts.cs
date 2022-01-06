@@ -32,7 +32,7 @@ public class LobbyScripts : MonoBehaviour
         int P1Rnd = Random.Range(1,5), P2Rnd = Random.Range(1,5);
         p1 = P1Rnd;
         p2 = P2Rnd;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
     
 }
